@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "LeeWay",
-    "slug": "LeeWay",
+    "name": "Leeway",
+    "slug": "leeway-interior-design",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to take photos of rooms for interior design analysis.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to photo library to save and select room photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,10 +25,30 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Leeway to access your camera to take photos of rooms for design analysis."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow Leeway to access your photo library to save and select room photos.",
+          "savePhotosPermission": "Allow Leeway to save photos to your device."
+        }
+      ]
+    ]
   }
 }
